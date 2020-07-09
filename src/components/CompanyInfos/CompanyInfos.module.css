@@ -6,17 +6,39 @@
     align-self: flex-end;
 }
 
-.LogoAndInfo {
-    display: flex;
-    align-items: center;
-    margin: 0;
-    padding: 0;
+.CompanyMoreInfos {
+    width: 90vw;
+    height: auto;
 }
 
-.LogoAndInfo p {
+.LogoAndInfoLI {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    margin-left: 2px;
+}
+
+.LogoAndInfoLI :nth-child(2) {
+    margin-right: auto;
+}
+
+.LogoAndInfoMI {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    margin-left: 2px;
+}
+
+.LogoAndInfoMI p {
     font-weight: 500;
     font-size: 0.9rem;
     direction: rtl;
+    margin-left: auto;
+    margin-right: 3px;
 }
 
 .AdressSocAndBtn {
@@ -24,11 +46,12 @@
     margin: 0;
     padding: 0;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
 }
 
 .Adress {
-    margin-left: 3px;
+    margin-left: 5px;
+    margin-right: auto;
     display: flex;
     flex-direction: column;
 }
@@ -47,10 +70,12 @@
     align-self: flex-start;
     margin-right: 10px;
     margin-bottom: 5px;
+    margin-left: auto;
 }
 
-.SocNet img {
+.SocNet input {
     margin: 2px;
+    outline: none;
 }
 
 .SocAndBtn {
@@ -59,12 +84,4 @@
     justify-content: space-between;
     margin-bottom: auto;
     align-items: center;
-}
-
-.LogoAndInfo :nth-child(2) {
-    margin-right: auto;
-}
-
-.InfoBtn input {
-    outline: none;
 }

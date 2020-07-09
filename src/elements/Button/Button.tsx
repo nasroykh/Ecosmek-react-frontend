@@ -73,7 +73,7 @@ const button = (props: any) => {
         case "lessInfo":
             btnType =
             <Aux>
-                <input type="image" src={next} alt="next" className={classes.LessInfo}/>
+                <input type="image" src={next} alt="next" className={classes.LessInfo} onClick={props.toggleInfos}/>
             </Aux>
         break;
 

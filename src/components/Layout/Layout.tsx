@@ -6,7 +6,9 @@ const layout = (props: any) => (
     <Aux>
 {/*         <div>Toolbar</div>
         <div>SD Toggle</div> */}
-        <main className={classes.Content}>{props.children}</main>
+        <main className={classes.Content}>
+            {props.children}
+        </main>
     </Aux>
 )
 

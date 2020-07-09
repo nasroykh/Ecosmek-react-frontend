@@ -3,7 +3,7 @@ import mainLogo from '../../assets/images/cklogo(new).png';
 
 const logo = (props: any) => (
     <div>
-        <img src={mainLogo} alt="Main Logo" height="40px"/>
+        <input style={{outline: "none"}} type="image" src={mainLogo} alt="Main Logo" height="40px"/>
     </div>
 )
 
