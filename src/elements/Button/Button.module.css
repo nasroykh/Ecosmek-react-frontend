@@ -1,0 +1,114 @@
+@media (max-width: 500px) {
+    .Lang {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .LangText {
+        text-align: center;
+        font-weight: 500;
+        padding: 0;
+        margin: 3px 0 ;
+    }
+
+    .Lang div {
+        padding: 5px 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 5px;
+        margin-top: 5px;
+        background-color: rgba(255, 255, 255, 0.6);
+    }
+
+    .Lang1 {
+        margin-right: 10px;
+    }
+
+    .Lang div a {
+        outline: none;
+        font-style: normal;
+        text-decoration: none;
+        color: black;
+        font-size: 1rem;
+        font-weight: 500;
+        text-align: center;
+        text-shadow: 0px 2px 30px;
+        height: 100%;
+        width: 100%;
+        line-height: 90%;
+    }
+
+    .SignUpBtn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 5% 25%;
+        padding: 2%;
+        background-color: rgba(255, 255, 255, 0.6);
+        border-radius: 5px ;
+    }
+
+    .ShopAccessBtn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 10% 5% 20% 5%;
+        padding: 10%;
+        background-color: rgba(255, 255, 255, 0.6);
+        border-radius: 5px ;
+    }
+
+    .SignInBtn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 5% 20%;
+        padding: 2%;
+        background-color: rgba(255, 255, 255, 0.6);
+        border-radius: 5px ;
+    }
+
+    .SignInBtn a, .SignUpBtn a, .ShopAccessBtn a {
+        outline: none;
+        font-style: normal;
+        text-decoration: none;
+        color: black;
+        font-size: 1.4rem;
+        text-align: center;
+        text-shadow: 0px 2px 30px;
+        text-transform: uppercase;
+        height: 100%;
+        width: 100%;
+        line-height: 90%;
+    }
+
+    .LandingPageText {
+        text-align: center;
+        text-transform: uppercase;
+        font-weight: 500;
+        padding: 0;
+        margin: 0 0;
+    }
+
+    .MoreInfo {
+        border: 1px #57575786 solid;
+        display: flex;
+        border-radius: 30px 0 20px 0;
+        padding: 10px;
+        background-color: white;
+        margin-right: auto;
+    }
+
+    .LessInfo {
+        transform: rotate(180deg);
+        border: 1px #57575786 solid;
+        border-left: transparent;
+        padding: 4px;
+        border-radius: 0 10px 10px 0;
+        outline: none;
+        margin-left: auto;
+    }
+}
+

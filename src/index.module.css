@@ -1,0 +1,13 @@
+html, body {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    padding: 0;
+    margin: 0;
+    height: 100vh;
+    width: 100vw;
+}
+
+a, button {
+    font-family: 'Montserrat Alternates';
+}
+

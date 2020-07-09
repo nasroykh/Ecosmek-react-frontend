@@ -1,0 +1,70 @@
+.Copyright {
+    text-align: center;
+    color: rgb(131, 131, 131);
+    font-size: 0.7rem;
+    margin: 0 5px;
+    align-self: flex-end;
+}
+
+.LogoAndInfo {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.LogoAndInfo p {
+    font-weight: 500;
+    font-size: 0.9rem;
+    direction: rtl;
+}
+
+.AdressSocAndBtn {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.Adress {
+    margin-left: 3px;
+    display: flex;
+    flex-direction: column;
+}
+
+.Adress p {
+    font-weight: 300;
+    font-size: 0.7rem;
+    margin: 0;
+    line-height: 15px;
+}
+
+.SocNet {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    align-self: flex-start;
+    margin-right: 10px;
+    margin-bottom: 5px;
+}
+
+.SocNet img {
+    margin: 2px;
+}
+
+.SocAndBtn {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: auto;
+    align-items: center;
+}
+
+.LogoAndInfo :nth-child(2) {
+    margin-right: auto;
+}
+
+.InfoBtn input {
+    outline: none;
+}
