@@ -1,5 +1,6 @@
 .App {
-    background-color: #F9DEEA;
+    background-color: #EFD8F3;
     width: 100vw;
     height: 100vh;
+    overflow: hidden;
 }

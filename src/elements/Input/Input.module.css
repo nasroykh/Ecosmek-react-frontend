@@ -1,0 +1,12 @@
+.Input{
+    outline: none;
+    border: none;
+    width: fit-content;
+    width: 75vw;
+    height: 7vh ;
+    font-size: 0.9rem;
+    font-family: 'Montserrat';
+    padding: 0 5px;
+    font-weight: 600;
+    min-height: 7vh;
+}

@@ -40,7 +40,7 @@
         line-height: 90%;
     }
 
-    .SignUpBtn {
+    .LPSignUpBtn {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -49,6 +49,8 @@
         background-color: rgba(255, 255, 255, 0.6);
         border-radius: 5px ;
     }
+
+    
 
     .ShopAccessBtn {
         display: flex;
@@ -60,7 +62,7 @@
         border-radius: 5px ;
     }
 
-    .SignInBtn {
+    .LPSignInBtn {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -70,7 +72,7 @@
         border-radius: 5px ;
     }
 
-    .SignInBtn a, .SignUpBtn a, .ShopAccessBtn a {
+    .LPSignInBtn a, .LPSignUpBtn a, .ShopAccessBtn a {
         outline: none;
         font-style: normal;
         text-decoration: none;
@@ -82,14 +84,6 @@
         height: 100%;
         width: 100%;
         line-height: 90%;
-    }
-
-    .LandingPageText {
-        text-align: center;
-        text-transform: uppercase;
-        font-weight: 500;
-        padding: 0;
-        margin: 0 0;
     }
 
     .MoreInfo {
@@ -114,6 +108,63 @@
         border-radius: 0 12px 12px 0;
         outline: none;
         margin-left: auto;
+    }
+
+    .SISignUpBtn, .SUSignInBtn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #F9D1FF;
+        border-radius: 5px ;
+    }
+
+    .SISignInBtn a, .SISignUpBtn a, .SUSignInBtn a {
+        outline: none;
+        font-style: normal;
+        text-decoration: none;
+        color: black;
+        font-size: 1rem;
+        text-align: center;
+        text-shadow: 0px 2px 30px;
+        text-transform: uppercase;
+        height: 100%;
+        width: 100%;
+        line-height: 90%;
+    }
+    
+    .NextArr {
+        height: 60px;
+        width: 60px;
+        border: 2px #DEB4E4 solid;
+        background-color: white;
+        border-radius: 16px;
+        display: flex;
+        align-items: center;
+        margin: 0 10px;
+        justify-content: center;
+        box-sizing: border-box;
+    }
+
+    .NextArr input {
+        transform: rotate(180deg);
+        outline: none;
+    }
+
+    .BackArr {
+        height: 60px;
+        width: 60px;
+        margin: 0 10px;
+        background-color: white;
+        border: 2px #DEB4E4 solid;
+        border-radius: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-sizing: border-box;
+    }
+
+    .BackArr input {
+        outline: none;
     }
 }
 

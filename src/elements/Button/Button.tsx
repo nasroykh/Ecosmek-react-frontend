@@ -2,6 +2,7 @@ import React from 'react'
 import classes from './Button.module.css';
 import Aux from '../../hoc/Aux';
 import next from '../../assets/images/next 1.svg';
+import nextArr from '../../assets/images/up-arrow 1.svg';
 
 
 const button = (props: any) => {
@@ -31,10 +32,7 @@ const button = (props: any) => {
         case "signup":
             btnType = 
                 <Aux>
-                    <p className={classes.LandingPageText}>Inscrivez vous et devenez un de nos fidèles clients.</p>
-                    <p className={classes.LandingPageText}>C'est simple et rapide !</p>
-                    <div className={classes.SignUpBtn}>
-                        
+                    <div className={props.lp ? classes.LPSignUpBtn : classes.SISignUpBtn}>
                         <a href ="/" >
                             S'inscrire
                         </a>
@@ -54,8 +52,7 @@ const button = (props: any) => {
         case "signin":
             btnType = 
                 <Aux>
-                    <p className={classes.LandingPageText}>Possedez vous déja un compte ?</p>
-                    <div className={classes.SignInBtn}>
+                    <div className={props.lp ? classes.LPSignInBtn : classes.SUSignInBtn}>
                         <a href ="/" >
                             Se connecter
                         </a>
@@ -76,6 +73,20 @@ const button = (props: any) => {
                 <input type="image" src={next} alt="next" className={classes.LessInfo} onClick={props.toggleInfos}/>
             </Aux>
         break;
+
+        case "next":
+            btnType = 
+                <div className={classes.NextArr}>
+                    <input type="image" src={nextArr} alt=""/>
+                </div>
+            break;
+        case "back":
+            btnType = 
+                <div className={classes.BackArr}>
+                    <input type="image" src={nextArr} alt=""/>
+                </div>
+        break;
+        
 
         default:
             break;

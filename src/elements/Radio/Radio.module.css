@@ -1,0 +1,23 @@
+.Radio {
+    appearance: none;
+    outline: none;
+    width: 24px;
+    height: 24px;
+    padding: 0;
+    margin: 0;
+    border: 1px #DEB4E4 solid;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.288), inset 0px -15px 10px -12px rgba(0,0,0,0.05);
+    border-radius: 5px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+    justify-content: center;
+}
+
+.Radio:checked:after {
+    content: url('../../assets/images/checkbox-X.svg');
+    margin-top: 3px;
+    align-self: center;
+}

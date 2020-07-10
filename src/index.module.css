@@ -9,5 +9,6 @@ html, body {
 
 a, button {
     font-family: 'Montserrat Alternates';
+    text-decoration: none;
 }
 
