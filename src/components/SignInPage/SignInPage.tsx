@@ -13,8 +13,8 @@ const signInPage = (props: any) => {
     return(
         <div className={classes.SignInPage}>
             <div className={classes.SIinput}>
-                <Input placeholder="Email"/>
-                <Input placeholder="Mot de Passe"/>
+                <Input type="text" handleInput={props.handleInput} value={props.fullName} placeholder="Email"/>
+                <Input type="password" handleInput={props.handleInput} value={props.password} placeholder="Mot de Passe"/>
             </div>
             <div className={classes.SUBtn}>
                 <p>Vous êtes nouveau ?</p>

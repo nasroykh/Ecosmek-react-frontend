@@ -76,7 +76,7 @@ const button = (props: any) => {
 
         case "next":
             btnType = 
-                <div className={classes.NextArr}>
+                <div className={classes.NextArr} onClick={props.signUpIn}>
                     <input type="image" src={nextArr} alt=""/>
                 </div>
             break;

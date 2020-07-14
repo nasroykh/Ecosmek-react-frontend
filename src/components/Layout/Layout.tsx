@@ -18,7 +18,7 @@ const layout = (props: any) => (
                 <Button type="back"/>
             </NavLink>
             <NavLink to="#">
-                <Button type="next"/>
+                <Button type="next" signUpIn={props.signUpIn}/>
             </NavLink>
         </div>
         <BottomShape/>
