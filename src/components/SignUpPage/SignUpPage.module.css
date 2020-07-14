@@ -1,34 +1,7 @@
 .SignUpPage {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-
-.LangZone {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0;
-    margin: 5px;
-}
-
-.SUinfos {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: white;
-    border-radius: 60px 0 0 0;
-    box-shadow: grey 0px -2px 7px;
-    z-index: 90;
-    height: 100%;
-    width: 100%;
-}
-
-.SUinfos :nth-child(1) {
-    margin: 6px;
+    flex-flow: column;
+    margin-bottom: auto;
 }
 
 .SUinput {
@@ -37,8 +10,8 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin-bottom: 2vh;
     width: auto;
-    margin: 0 0;
 }
 
 .SUinputs {
@@ -48,7 +21,7 @@
     align-items: center;
     justify-content: center;
     width: auto;
-    margin: 0 0;
+    margin-top: 5vh;
 }
 
 .SUinput :nth-child(1) {
@@ -69,35 +42,25 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 80%;
+    width: 80vw;
     align-items: flex-start;
     margin-top: 10px;
 }
 
 .SIBtn p {
     align-self: flex-start;
-    margin: 0;
+    margin-top: 1vh;
     padding: 0;
 }
 
-.SIBtn :nth-child(2) {
-    margin-left: 10px;
-}
-
-.BackNext {
-    position: absolute;
-    bottom: 3vh;
-    width: 100vw;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
 
 .Radio {
     display: flex;
     align-items: center;
     border: none;
-    justify-content: center;
+    width: 100%;
+    justify-content: space-evenly;
+    margin-bottom: 2vh;
 }
 
 .RdMan, .RdWom {

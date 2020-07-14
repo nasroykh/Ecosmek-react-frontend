@@ -1,0 +1,32 @@
+.ShopPage {
+    display: flex;
+    flex-flow: column;
+    margin-bottom: auto;
+}
+
+.ShopPage h2 {
+    margin-bottom: 15px;
+    margin-left: 3vw;
+    text-shadow: 1px 1px 50px;
+}
+
+.ShopTitles {
+    display: flex;
+    flex-flow: column;
+    margin-top: 15vh;
+    height: 100px;
+    justify-content: space-evenly;
+}
+
+.ShopTitles :nth-child(1){
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ShopTitles :nth-child(2) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+

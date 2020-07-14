@@ -1,0 +1,28 @@
+.DrawerToggle {
+    width: 25px;
+    height: 25px;    
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-evenly;
+}
+
+.DrawerToggle :nth-child(1) {
+    width: 21px;
+    height: 4px;
+    border-radius: 2px;
+    margin: 0;
+    padding: 0;
+    background-color: #EFD8F3;
+}
+
+.DrawerToggle :nth-child(2) {
+    width: 16px;
+    border-radius: 2px;
+    height: 4px;    
+    margin: 0;
+    padding: 0;
+    background-color: #EFD8F3;
+}

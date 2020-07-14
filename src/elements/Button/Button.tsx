@@ -16,14 +16,14 @@ const button = (props: any) => {
                     <p className={classes.LangText}>Changer de langue</p>
                     <div className={classes.Lang}>
                         <div className={classes.Lang1}>
-                            <a href ="/" >
+                            <button>
                                 Arabic
-                            </a>
+                            </button>
                         </div>
                         <div className={classes.Lang2}> 
-                            <a href ="/" >
+                            <button>
                                 English
-                            </a>
+                            </button>
                         </div>
                     </div>
                 </Aux>
@@ -33,9 +33,9 @@ const button = (props: any) => {
             btnType = 
                 <Aux>
                     <div className={props.lp ? classes.LPSignUpBtn : classes.SISignUpBtn}>
-                        <a href ="/" >
+                        <button>
                             S'inscrire
-                        </a>
+                        </button>
                     </div>
                 </Aux>
             break;
@@ -43,9 +43,9 @@ const button = (props: any) => {
         case "shopaccess":
             btnType = 
                 <div className={classes.ShopAccessBtn}>
-                    <a href ="/" >
+                    <button>
                         Access direct à la boutique
-                    </a>
+                    </button>
                 </div>
             break;
 
@@ -53,9 +53,9 @@ const button = (props: any) => {
             btnType = 
                 <Aux>
                     <div className={props.lp ? classes.LPSignInBtn : classes.SUSignInBtn}>
-                        <a href ="/" >
+                        <button>
                             Se connecter
-                        </a>
+                        </button>
                     </div>
                 </Aux>
             break;
@@ -80,11 +80,20 @@ const button = (props: any) => {
                     <input type="image" src={nextArr} alt=""/>
                 </div>
             break;
+        
         case "back":
             btnType = 
                 <div className={classes.BackArr}>
                     <input type="image" src={nextArr} alt=""/>
                 </div>
+        break;
+
+        case "shopTitle":
+            btnType = 
+            <div className={classes.ShopTitle}>
+                <button>{props.children}</button>
+                <div></div>
+            </div>
         break;
         
 

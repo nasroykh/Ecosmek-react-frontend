@@ -1,0 +1,17 @@
+.Toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin: 15px;
+    padding: 0;
+    width: 100vw;
+}
+
+.SiSuToolbar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 15px;
+    padding: 0;
+    width: 100vw;
+}

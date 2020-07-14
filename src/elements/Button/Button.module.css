@@ -26,7 +26,7 @@
         margin-right: 10px;
     }
 
-    .Lang div a {
+    .Lang div button {
         outline: none;
         font-style: normal;
         text-decoration: none;
@@ -38,6 +38,8 @@
         height: 100%;
         width: 100%;
         line-height: 90%;
+        background: none;
+        border: none;
     }
 
     .LPSignUpBtn {
@@ -72,7 +74,7 @@
         border-radius: 5px ;
     }
 
-    .LPSignInBtn a, .LPSignUpBtn a, .ShopAccessBtn a {
+    .LPSignInBtn button, .LPSignUpBtn button, .ShopAccessBtn button {
         outline: none;
         font-style: normal;
         text-decoration: none;
@@ -84,6 +86,8 @@
         height: 100%;
         width: 100%;
         line-height: 90%;
+        background: none;
+        border: none;
     }
 
     .MoreInfo {
@@ -116,9 +120,10 @@
         align-items: center;
         background-color: #F9D1FF;
         border-radius: 5px ;
+        padding: 10px;
     }
 
-    .SISignInBtn a, .SISignUpBtn a, .SUSignInBtn a {
+    .SISignInBtn button, .SISignUpBtn button, .SUSignInBtn button {
         outline: none;
         font-style: normal;
         text-decoration: none;
@@ -130,6 +135,8 @@
         height: 100%;
         width: 100%;
         line-height: 90%;
+        background: none;
+        border: none;
     }
     
     .NextArr {
@@ -140,9 +147,9 @@
         border-radius: 16px;
         display: flex;
         align-items: center;
-        margin: 0 10px;
         justify-content: center;
         box-sizing: border-box;
+        margin-right: 20px;
     }
 
     .NextArr input {
@@ -153,7 +160,6 @@
     .BackArr {
         height: 60px;
         width: 60px;
-        margin: 0 10px;
         background-color: white;
         border: 2px #DEB4E4 solid;
         border-radius: 16px;
@@ -161,10 +167,35 @@
         align-items: center;
         justify-content: center;
         box-sizing: border-box;
+        margin-left: 20px;
     }
 
     .BackArr input {
         outline: none;
+    }
+
+    .ShopTitle {
+        display: flex;
+        flex-flow: column;
+        margin: 0;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .ShopTitle button{
+        outline: none;
+        background: none;
+        border: none;
+        margin: 0;
+        font-size: 1rem;
+        font-weight: 500;
+    }
+
+    .ShopTitle div {
+        width: 40px;
+        height: 2px;
+        background-color: #DEB4E4;
+        margin: 0;
     }
 }
 

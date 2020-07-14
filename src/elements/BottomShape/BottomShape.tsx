@@ -1,5 +1,4 @@
 import React from 'react';
-import classes from './BottomShape.module.css';
 import Aux from '../../hoc/Aux';
 import shape from '../../assets/images/Rectangle 11.svg';
 

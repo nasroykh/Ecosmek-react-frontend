@@ -1,34 +1,7 @@
 .SignInPage {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-
-.LangZone {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0;
-    margin: 5px;
-}
-
-.SIinfos {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: white;
-    border-radius: 60px 0 0 0;
-    box-shadow: grey 0px -2px 7px;
-    z-index: 90;
-    height: 100%;
-    width: 100%;
-}
-
-.SIinfos :nth-child(1) {
-    margin: 10px;
+    flex-flow: column;
+    margin-bottom: auto;
 }
 
 .SIinput {
@@ -38,7 +11,8 @@
     align-items: center;
     justify-content: space-evenly;
     width: auto;
-    margin: 20px 0;
+    margin-top: 5vh;
+    margin-bottom: 10vh;
 }
 
 .SIinput :nth-child(1) {
@@ -59,34 +33,13 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 80%;
+    width: 80vw;
     align-items: flex-start;
-    margin: 20px 0;
+    margin-top: 10px;
 }
 
 .SUBtn p {
     align-self: flex-start;
-    margin: 0;
+    margin-top: 1vh;
     padding: 0;
-}
-
-.SUBtn :nth-child(2) {
-    margin-left: 10px;
-}
-
-.BackNext {
-    position: absolute;
-    bottom: 3vh;
-    width: 100vw;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.Copyright {
-    position: absolute;
-    bottom: 0;
-    text-align: center;
-    color: rgb(131, 131, 131);
-    font-size: 0.7rem;
 }
