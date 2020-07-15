@@ -3,13 +3,14 @@ html, body {
     font-size: 12px;
     padding: 0;
     margin: 0;
-    height: 100vh;
+    height: auto;
     width: 100vw;
 }
 
-a, button, h1, h2, h3 {
+a, button, h1, h2, h3, label, input {
     font-family: 'Montserrat Alternates';
     text-decoration: none;
+    outline: none;
 }
 
 p {

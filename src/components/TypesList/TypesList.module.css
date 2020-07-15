@@ -1,0 +1,7 @@
+.TypesList {
+    display: flex;
+    align-items: center;
+    width: 90vw;
+    height: auto;
+    justify-content: space-evenly;
+}

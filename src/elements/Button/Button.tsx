@@ -3,6 +3,13 @@ import classes from './Button.module.css';
 import Aux from '../../hoc/Aux';
 import next from '../../assets/images/next 1.svg';
 import nextArr from '../../assets/images/up-arrow 1.svg';
+import filter from '../../assets/images/filter.svg';
+import sort from '../../assets/images/sort 1.svg';
+import pagebtn from '../../assets/images/nextpage.svg';
+import list from '../../assets/images/list (1) 1.svg';
+import grid from '../../assets/images/grid 1.svg';
+import addbag from '../../assets/images/shopping-bag (1) 1.svg';
+import doublenext from '../../assets/images/doublenext.svg';
 
 
 const button = (props: any) => {
@@ -95,7 +102,76 @@ const button = (props: any) => {
                 <div></div>
             </div>
         break;
-        
+
+        case "filter":
+            btnType = 
+            <div className={classes.Filter}>
+                <input type="image" src={filter} alt="Filter"/>
+            </div>
+        break;
+
+        case "sort":
+            btnType = 
+            <div className={classes.Sort}>
+                <input type="image" src={sort} alt="Sort"/>
+            </div>
+        break;
+
+        case "backPage":
+            btnType = 
+            <div className={classes.BackP}>
+                <input type="image" src={pagebtn} alt="Previous Page"/>
+            </div>
+        break;
+
+        case "doubleBack":
+            btnType = 
+            <div className={classes.DBackP}>
+                <input type="image" src={doublenext} alt="First Page"/>
+            </div>
+        break;
+
+        case "nextPage":
+            btnType = 
+            <div className={classes.NextP}>
+                <input type="image" src={pagebtn} alt="Next Page"/>
+            </div>
+        break;
+
+        case "doubleNext":
+            btnType = 
+            <div className={classes.DNextP}>
+                <input type="image" src={doublenext} alt="Last Page"/>
+            </div>
+        break;
+
+        case "gridView":
+            btnType = 
+            <div className={classes.Grid}>
+                <input type="image" src={grid} alt="GridView"/>
+            </div>
+        break;
+
+        case "listView":
+            btnType = 
+            <div className={classes.List}>
+                <input type="image" src={list} alt="ListView"/>
+            </div>
+        break;
+
+        case "addBag":
+            btnType = 
+            <div className={classes.AddBag}>
+                <input type="image" src={addbag} alt="Add To Bag"/>
+            </div>
+        break;
+
+        case "catBtn":
+            btnType = 
+            <div className={classes.CatBtn}>
+                <label>{props.children}</label>
+            </div>
+        break;
 
         default:
             break;

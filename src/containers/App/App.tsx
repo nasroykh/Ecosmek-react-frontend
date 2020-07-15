@@ -7,7 +7,6 @@ import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 import LangChange from '../../components/LangChange/LangChange';
 import SignUpPage from '../../components/SignUpPage/SignUpPage';
 import ShopPage from '../../components/ShopPage/ShopPage';
-import Toolbar from '../../components/Toolbar/Toolbar';
 import axios from '../../axios-ck';
 import Spinner from '../../elements/Spinner/Spinner';
 
@@ -21,7 +20,8 @@ class App extends Component {
             password: ''
 		},
 		signedUp : false,
-		signedIn : false
+		signedIn : false,
+		pageLoaded: true
 	}
 
 	handleInput = (event: ChangeEvent<HTMLInputElement>) => {
@@ -52,6 +52,7 @@ class App extends Component {
     }
 	
     signUpBtnHandler = () => {
+		this.setState({pageLoaded: false});
 		let accountInfos = {
 			fullName : this.state.account.fullName,
 			email : this.state.account.email,
@@ -65,12 +66,14 @@ class App extends Component {
 			else if (!res.data.signedUp) {
 				this.setState({signedUp: false})
 			}
+			this.setState({pageLoaded: true});
 		})
 		.catch(error => console.log(error));
 		console.log(this.state.signedUp);
 	}
 	
 	signInBtnHandler = () => {
+		this.setState({pageLoaded: false});
 		let accountInfos = {
 			identification : this.state.account.email,
 			password : this.state.account.password
@@ -83,6 +86,7 @@ class App extends Component {
 			else if (!res.data.signedUp) {
 				this.setState({signedIn: false})
 			}		
+			this.setState({pageLoaded: true});
 		})
 		.catch(error => console.log(error));
     }
@@ -97,13 +101,12 @@ class App extends Component {
 				<BrowserRouter>
 					<Switch>
 						<Route path="/shop" exact>
-							<Layout>
-								{/* <Spinner/> */}
-								<ShopPage/>
+							<Layout /* sisush */>
+								{this.state.pageLoaded ? <ShopPage/> : <Spinner/>}
 							</Layout>
 						</Route>
 						<Route path="/signin" exact>
-							<Layout sisu signUpIn={this.signInBtnHandler}>
+							<Layout sisush sisu signUpIn={this.signInBtnHandler}>
 								<SignInPage
 									handleInput={this.handleInput} 
 									email={this.state.account.email}
@@ -113,7 +116,7 @@ class App extends Component {
 							</Layout>
 						</Route>
 						<Route path="/signup" exact>
-							<Layout sisu signUpIn={this.signUpBtnHandler}>
+							<Layout sisush signUpIn={this.signUpBtnHandler}>
 								<SignUpPage 
 								handleInput={this.handleInput} 
 								fullName={this.state.account.fullName}

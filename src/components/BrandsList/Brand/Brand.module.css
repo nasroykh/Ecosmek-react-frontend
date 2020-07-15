@@ -1,0 +1,16 @@
+.Brand {
+    display: flex;
+    width: 35px;
+    height: 35px;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    border: 1px #C387EB solid;
+    border-radius: 10px;
+    margin-right: 1vw;
+}
+
+.Brand input {
+    width: 28px;
+    height: 28px;
+}

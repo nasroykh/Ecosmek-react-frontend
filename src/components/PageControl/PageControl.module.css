@@ -1,0 +1,30 @@
+.PageControl {
+    width: 100vw;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 5px;
+}
+
+.PageControl p {
+    margin-left: 5vw;
+    width: 30vw;
+}
+
+.PageBtns {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 35vw;
+    margin-left: auto;
+    margin-right: 3vw;
+}
+
+.PageView {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 30vw;
+    margin-left: auto;
+}

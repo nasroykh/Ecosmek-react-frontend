@@ -197,5 +197,79 @@
         background-color: #DEB4E4;
         margin: 0;
     }
+
+    .Filter , .Sort {
+        height: 40px;
+        width: 40px;
+        border: 1px #DEB4E4 solid;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        margin: 0;
+        border-radius: 10px;
+    }
+
+    .Filter input , .Sort Input {
+        outline: none;
+        width: 26.19px;
+    }
+
+    .BackP, .NextP, .DBackP , .DNextP {
+        height: 20px;
+        width: 20px;
+        border-radius: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #DEB4E4;
+        border: 1px #C387EB solid;
+    }
+
+    .NextP input, .DBackP input {
+        transform: rotate(180deg);
+    }
+
+    .Grid, .List {
+        height: 30px;
+        width: 30px;
+        display: flex;
+        align-items: center;
+        border-radius: 5px;
+        justify-content: center;
+        border: 1px #C387EB solid;
+        background-color: #DEB4E4;
+    }
+
+    .AddBag {
+        width: 24px;
+        height: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+        background-color: white;
+        border: 1px #DEB4E4 solid;
+        border-radius: 5px;
+    }
+
+    .AddBag input {
+        width: 15px;
+    }
+    
+    .CatBtn{
+        background-color: #F9D1FF;
+        padding: 10px;
+        border: 1px solid #C387EB;
+        border-bottom: none;
+        border-radius: 15px 5px 0 0;    
+    }
+
+    .CatBtn label {
+        font-size: 0.95rem;
+        font-weight: 500;
+    }
 }
 

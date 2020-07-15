@@ -1,11 +1,10 @@
 import React from 'react'
-import Aux from '../../hoc/Aux';
 import classes from './Layout.module.css';
-import BottomShape from '../../elements/BottomShape/BottomShape';
 import Toolbar from '../Toolbar/Toolbar';
 import Button from '../../elements/Button/Button';
-import LangChange from '../LangChange/LangChange';
 import { NavLink } from 'react-router-dom';
+import CompanyInfos from '../CompanyInfos/CompanyInfos';
+import BottomShape from '../../elements/BottomShape/BottomShape';
 
 const layout = (props: any) => (
     <div className={classes.Content}>
@@ -14,15 +13,12 @@ const layout = (props: any) => (
             {props.children}
         </main>
         <div className={classes.BackNext}>
-            <NavLink to="/">
-                <Button type="back"/>
-            </NavLink>
-            <NavLink to="#">
-                <Button type="next" signUpIn={props.signUpIn}/>
-            </NavLink>
+            {props.sisu ? <NavLink to="/"><Button type="back"/></NavLink> : null}
+            {props.sisu ? <NavLink to="#"><Button type="next" signUpIn={props.signUpIn}/></NavLink> : null}
         </div>
-        <BottomShape/>
-        <p className={classes.Copyright}>Copyright 2020 © Cosmekarn. All Rights Reserved.</p>
+        {props.sisush ? null : <div className={classes.CompanyInfo}><CompanyInfos show /></div>}
+{/*                 {props.sisush ? <BottomShape/> : null}
+        {props.sisush ? <p className={classes.Copyright}>Copyright 2020 © Cosmekarn. All Rights Reserved.</p> : null} */}
     </div>
 )
 

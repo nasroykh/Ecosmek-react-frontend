@@ -1,11 +1,7 @@
 import React from 'react';
 import classes from './SignInPage.module.css';
-import LangChange from '../LangChange/LangChange';
-import Logo from '../../elements/Logo/Logo';
-import BottomShape from '../../elements/BottomShape/BottomShape';
 import Input from '../../elements/Input/Input';
 import Button from '../../elements/Button/Button';
-import { NavLink } from 'react-router-dom';
 
 
 const signInPage = (props: any) => {

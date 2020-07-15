@@ -1,6 +1,5 @@
 import React from 'react';
 import classes from './Toolbar.module.css';
-import Aux from '../../hoc/Aux';
 import Logo from '../../elements/Logo/Logo';
 import DrawerToggle from '../../elements/DrawerToggle/DrawerToggle';
 import ShopBag from '../../elements/ShopBag/ShopBag';

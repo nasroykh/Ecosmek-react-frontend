@@ -1,0 +1,7 @@
+.BrandsList {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 90vw;
+    height: auto;
+}
