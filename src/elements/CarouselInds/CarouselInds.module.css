@@ -1,0 +1,8 @@
+.CarouselInds {
+    display: flex;
+    flex-flow: row;
+    align-self: center;
+    align-items: center;
+    justify-content: space-evenly;
+    height: auto;
+}

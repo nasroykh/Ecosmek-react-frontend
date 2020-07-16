@@ -1,4 +1,4 @@
-.ProdImage {
+.ProdImageGrid {
     background-color: white;
     width: 100%;
     height: 120px;
@@ -8,6 +8,12 @@
     border-radius: 20px 20px 40px 0;
 }
 
-.ProdImage img {
-    border-radius: 0 0 20px 0;
+.ProdImageList {
+    background-color: white;
+    width: 30vw;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 30px 40px 0 30px;
 }

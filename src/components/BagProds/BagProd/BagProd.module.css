@@ -1,0 +1,29 @@
+.BagProd {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    background-color: rgb(255, 255, 255);
+    margin: 5px;
+    border-radius: 10px;
+}
+
+.BagProdInfos {
+    display: flex;
+    flex-flow: column;
+    align-items: flex-start;
+    justify-content: space-around;
+    height: auto;
+    margin: 5px;
+}
+
+.BagProdInfos > p {
+    font-weight: 500;
+    font-size: 0.9rem;
+
+}
+
+.BagProd input {
+    align-self: flex-end;
+    margin: 1vh 2px;
+}

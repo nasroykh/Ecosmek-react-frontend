@@ -1,0 +1,27 @@
+.HomePage {
+    display: flex;
+    flex-flow: column;
+    margin-bottom: auto;
+    width: 100vw;
+    height: auto;
+    justify-content: center;
+}
+
+.PageTitle {
+    margin-bottom: 15px;
+    margin-left: 10vw;
+    text-shadow: 1px 1px 50px;
+}
+
+.HomeBreakLine {
+    width: 40vw;
+    height: 3px;
+    align-self: center;
+    border-radius: 10px;
+    background-color: #DEB4E4;
+    margin: 5vh 0;
+}
+
+.HomePage > :last-child {
+    margin-bottom: 5vh;
+}

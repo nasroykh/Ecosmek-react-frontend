@@ -1,4 +1,4 @@
-.Prod {
+.ProdGrid {
     position: relative;
     width: 30vw;
     height: auto;
@@ -11,10 +11,31 @@
     background-color: #f2e3f5;
 }
 
-.ProdInfos {
+.ProdList {
+    position: relative;
+    background-color: #f2e3f5;
+    display: flex;
+    width: 90vw;
+    height: 15vh;
+    margin-bottom: 10px;
+    border-radius: 30px;
+}
+
+.ProdInfosGrid {
     align-self: flex-start;
     margin: 5px;
     padding: 0;
+}
+
+.ProdInfosList {
+    align-self: center;
+    margin-left: 5vw;
+    display: flex;
+    flex-flow: column;
+}
+
+.ProdInfosList .PBrand {
+    margin-bottom: auto;
 }
 
 .PName {

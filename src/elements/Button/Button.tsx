@@ -47,6 +47,30 @@ const button = (props: any) => {
                 </Aux>
             break;
 
+        case "sdsignup":
+            btnType = 
+                <Aux>
+                    <div className={classes.SDSignUpBtn}>
+                        <button>
+                            S'inscrire
+                        </button>
+                        <div className={classes.UnderLine}></div>
+                    </div>
+                </Aux>
+            break; 
+            
+        case "sdsignin":
+            btnType = 
+                <Aux>
+                    <div className={classes.SDSignInBtn}>
+                        <button>
+                            Se connecter
+                        </button>
+                        <div className={classes.UnderLine}></div>
+                    </div>
+                </Aux>
+            break;    
+
         case "shopaccess":
             btnType = 
                 <div className={classes.ShopAccessBtn}>
@@ -147,15 +171,15 @@ const button = (props: any) => {
 
         case "gridView":
             btnType = 
-            <div className={classes.Grid}>
-                <input type="image" src={grid} alt="GridView"/>
+            <div className={props.gactive ? `${classes.Grid} ${classes.Active}` : classes.Grid}>
+                <input type="image" src={grid} alt="GridView" name="grid" onClick={props.toggleView}/>
             </div>
         break;
 
         case "listView":
             btnType = 
-            <div className={classes.List}>
-                <input type="image" src={list} alt="ListView"/>
+            <div className={props.lactive ? `${classes.List} ${classes.Active}` : classes.List}>
+                <input type="image" src={list} alt="ListView" name="list" onClick={props.toggleView}/>
             </div>
         break;
 
@@ -172,6 +196,30 @@ const button = (props: any) => {
                 <label>{props.children}</label>
             </div>
         break;
+
+        case "showbag":
+            btnType = 
+                <Aux>
+                    <div className={classes.BagBtns}>
+                        <button>
+                            Afficher le panier
+                        </button>
+                        <div className={classes.UnderLine}></div>
+                    </div>
+                </Aux>
+        break;   
+        
+        case "checkout":
+            btnType = 
+                <Aux>
+                    <div className={classes.BagBtns}>
+                        <button>
+                            Proceder au paiement
+                        </button>
+                        <div className={classes.UnderLine}></div>
+                    </div>
+                </Aux>
+        break; 
 
         default:
             break;

@@ -39,6 +39,17 @@
     background-color: #DEB4E4;
 }
 
+.SortMenu {
+    position: relative;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: auto;
+    background-color: #DEB4E4;
+}
+
 .Selected {
     background-color: #DEB4E4;
     border-radius: 10px 10px 0 0;

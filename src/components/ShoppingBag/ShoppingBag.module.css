@@ -1,0 +1,63 @@
+.ShoppingBag {
+    position: fixed;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 80vw;
+    height: 60vh;
+    border-radius: 0 60px 0 150px ;
+    top: 0;
+    right: 0;
+    z-index: 200;
+    background-color: #DEB4E4;
+    border: 1px solid #C387EB;
+    box-sizing: border-box;
+    transition: transform 1s ease-out;
+    overflow: auto;
+}
+
+.SBHeader {
+    align-self: flex-end;
+    margin-right: 9vw;
+    margin-top: 3vh;
+    margin-bottom: 1vh;
+    height: auto;
+}
+
+.BagProds {
+    margin: 2vh 0;
+    height: auto;
+}
+
+.Total {
+    margin: 1vh 0;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column;
+    font-weight: 600;
+    font-size: 1.2rem;
+    height: auto;
+}
+
+.Total > div {
+    background-color: white;
+    width: 100%;
+    height: 1px;
+    margin: 5px;
+}
+
+.SBFooter {
+    align-self: flex-end;
+    margin: 1vh 0;
+}
+
+.Open {
+    transform: translateX(0);
+}
+
+.Close {
+    transform: translateX(-100vw);
+}

@@ -1,0 +1,26 @@
+.HomeProds {
+    display: flex;
+    align-self: center;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: auto;
+}
+
+.HomeProds h2 {
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.Prods {
+    margin-top: 2vh;
+    display: flex;
+    width: 100vw;
+    justify-content: space-around;
+    height: auto;
+}
+
+.Prods > div {
+    border: 1px solid #deb4e449;
+}

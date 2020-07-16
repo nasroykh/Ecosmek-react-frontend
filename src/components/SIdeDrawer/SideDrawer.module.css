@@ -1,0 +1,55 @@
+.SideDrawer {
+    position: fixed;
+    display: flex;
+    flex-flow: column;
+    align-items: stretch;
+    justify-content: center;
+    width: 90vw;
+    height: 80vh;
+    border-radius: 60px 0 150px 0;
+    top: 0;
+    left: 0;
+    z-index: 200;
+    background-color: #DEB4E4;
+    border: 1px solid #C387EB;
+    box-sizing: border-box;
+    transition: transform 1s ease-out;
+}
+
+.SDToolbar {
+    margin-top: 3vh;
+    display: flex;
+    align-items: center;
+    align-self: center;
+    justify-content: space-between;
+    margin-bottom: auto;
+    width: 80%;
+}
+
+.Nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    width: 60vw;
+    margin-bottom: auto;
+}
+
+.SDFooter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 65vw;
+    margin-bottom: 5vh;
+}
+
+.SDFooter :last-child {
+}
+
+.Open {
+    transform: translateX(0);
+}
+
+.Close {
+    transform: translateX(-100vw);
+}

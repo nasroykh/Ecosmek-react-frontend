@@ -1,0 +1,24 @@
+.ShopPage {
+    display: flex;
+    flex-flow: column;
+    margin-bottom: auto;
+    width: 100vw;
+    height: auto;
+}
+
+.ShopPage h2 {
+    margin-bottom: 15px;
+    margin-left: 10vw;
+    text-shadow: 1px 1px 50px;
+}
+
+.CatBtns {
+    display: flex; 
+    width: 100vw; 
+    justify-content: space-evenly;
+    border: none;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    margin-top: 20px;
+}

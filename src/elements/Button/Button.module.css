@@ -237,6 +237,9 @@
         align-items: center;
         border-radius: 5px;
         justify-content: center;
+    }
+
+    .Active {
         border: 1px #C387EB solid;
         background-color: #DEB4E4;
     }
@@ -269,6 +272,53 @@
 
     .CatBtn label {
         font-size: 0.95rem;
+        font-weight: 500;
+    }
+    
+    .SDSignUpBtn, .SDSignInBtn {
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+        margin: 1vh 0 ;
+    }
+
+    .SDSignUpBtn button, .SDSignInBtn button {
+        font-family: "Montserrat Alternates";
+        color: white;
+        display: flex;
+        outline: none;
+        background: none;
+        border: none;
+        flex-flow: column;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        font-weight: 500;
+        text-align: center;
+    }
+
+    .UnderLine {
+        width: 50%;
+        height: 1px;
+        background-color: white;
+    }
+
+    .BagBtns {
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+        margin: 1vh 0 ;
+    }
+
+    .BagBtns button{
+        color: white;
+        display: flex;
+        outline: none;
+        background: none;
+        border: none;
+        flex-flow: column;
+        align-items: center;
+        justify-content: center;
         font-weight: 500;
     }
 }

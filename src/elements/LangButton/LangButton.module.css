@@ -1,0 +1,15 @@
+.LangButton {
+    height: 40px;
+    width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px white solid;
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+
+.LangButton input {
+    width: 28px;
+    height: 28px;
+}

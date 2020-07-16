@@ -1,0 +1,45 @@
+.HomeAd {
+    display: flex;
+    position: relative;
+    margin: 5vh 0 1vh 0;
+    justify-content: space-between;
+    width: 100vw;
+    height: 40vh;
+    border-radius: 20px 5px 20px 5px;
+}
+
+.HomeAd img {
+    width: 100%;
+    height: 100%;
+    border-radius: 20px 5px 20px 5px;
+    position: relative;
+}
+
+.AdText {
+    background-color: rgba(0, 0, 0, 0.322);
+    position: absolute;
+    left: 0;
+    height: 100%;
+    width: 35vw;
+    z-index: 1;
+    border-radius: 20px 0 0 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.AdText div {
+    background-color: white;
+    border: 2px #DEB4E4 solid;
+    border-radius: 15px;
+    display: flex;
+    width: 85%;
+    align-items: center;
+    justify-content: center;
+}
+
+.AdText div p {
+    font-family: "Comfortaa";
+    text-align: center;
+    font-size: 0.9rem;
+}

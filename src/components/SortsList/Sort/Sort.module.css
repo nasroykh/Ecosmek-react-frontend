@@ -1,0 +1,18 @@
+.Sort {
+    display: flex;
+    width: 90vw;
+    align-items: center;
+    justify-content: space-around;
+    margin: 3px 0;
+}
+
+.Sort label {
+    font-weight: 500;
+}
+
+.Sort div {
+    padding: 5px;
+    background-color: #f2e3f5;
+    border: 1px #c387ebc5 solid;
+    border-radius: 5px;
+}

@@ -1,9 +1,9 @@
 import React from 'react';
 import classes from './DrawerToggle.module.css';
 
-const drawerToggle = () => {
+const drawerToggle = (props: any) => {
     return(
-        <div className={classes.DrawerToggle}>
+        <div className={props.sd ? classes.SDDrawerToggle : classes.DrawerToggle}>
             <div></div>
             <div></div>
         </div>

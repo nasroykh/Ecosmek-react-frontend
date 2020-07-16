@@ -5,22 +5,25 @@ import PageControl from '../PageControl/PageControl';
 import ProdsList from '../ProdsList/ProdsList';
 import BrandsList from '../BrandsList/BrandsList';
 import TypesList from '../TypesList/TypesList';
+import SortsList from '../SortsList/SortsList';
 
-const shopProds = () => {
+const shopProds = (props: any) => {
     return(
         <div className={classes.ShopProds}>
             <div className={classes.FilterSort}>
-                <div className={`${classes.Filter} ${classes.Selected}`} >
+                <div className={`${classes.Filter}`} >
                     <Button type="filter" />
                     <label>Filtre</label>
                 </div>
-                <div className={classes.Sort}>
+                <div className={`${classes.Sort}`}>
                     <Button type="sort" />
                     <label>Tri</label>
                 </div>
             </div>
-            <div className={classes.FilterMenu}>
-                <div className={classes.elected}></div>
+{/*             <div className={classes.SortMenu}>
+                <SortsList/>
+            </div> */}
+{/*         <div className={classes.FilterMenu}>
                 <div className={classes.BrandFilter}>
                     <h4>Marque</h4>
                     <BrandsList/>
@@ -35,10 +38,10 @@ const shopProds = () => {
                         
                     </div>
                 </div>
-            </div>
-            <PageControl />
-            <ProdsList />
-            <PageControl bottom />
+            </div> */}
+            <PageControl toggleView={props.toggleView} view={props.view}/>
+            <ProdsList view={props.view.prodsView} />
+            <PageControl toggleView={props.toggleView}  view={props.view} bottom />
         </div>
     );
 }

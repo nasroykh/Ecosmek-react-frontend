@@ -6,9 +6,10 @@ import SignInPage from '../../components/SignInPage/SignInPage';
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 import LangChange from '../../components/LangChange/LangChange';
 import SignUpPage from '../../components/SignUpPage/SignUpPage';
-import ShopPage from '../../components/ShopPage/ShopPage';
+import ShopPage from '../ShopPage/ShopPage';
 import axios from '../../axios-ck';
 import Spinner from '../../elements/Spinner/Spinner';
+import HomePage from '../../components/HomePage/HomePage';
 
 class App extends Component {
 
@@ -100,6 +101,11 @@ class App extends Component {
 			<div className={classes.App}>
 				<BrowserRouter>
 					<Switch>
+						<Route path="/home" exact>
+							<Layout /* sisush */>
+								{this.state.pageLoaded ? <HomePage/> : <Spinner/>}
+							</Layout>
+						</Route>
 						<Route path="/shop" exact>
 							<Layout /* sisush */>
 								{this.state.pageLoaded ? <ShopPage/> : <Spinner/>}

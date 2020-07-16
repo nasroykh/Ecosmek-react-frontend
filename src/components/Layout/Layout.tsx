@@ -5,9 +5,15 @@ import Button from '../../elements/Button/Button';
 import { NavLink } from 'react-router-dom';
 import CompanyInfos from '../CompanyInfos/CompanyInfos';
 import BottomShape from '../../elements/BottomShape/BottomShape';
+import Backdrop from '../../elements/Backdrop/Backdrop';
+import SideDrawer from '../SIdeDrawer/SideDrawer';
+import ShoppingBag from '../ShoppingBag/ShoppingBag';
 
 const layout = (props: any) => (
     <div className={classes.Content}>
+        {/* <Backdrop show />
+        <SideDrawer/>
+        <ShoppingBag/> */}
         {props.sisu ? <Toolbar sisu1/> : <Toolbar/> }
         <main className={classes.Main}>
             {props.children}

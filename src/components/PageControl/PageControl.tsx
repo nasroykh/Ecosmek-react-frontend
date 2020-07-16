@@ -13,8 +13,8 @@ const pageControl = (props: any) => {
                 {props.bottom ? <Button type="doubleNext" /> : null}
             </div>
             <div className={classes.PageView}>
-                <Button type="listView" />
-                <Button type="gridView" />
+                <Button type="listView" toggleView={props.toggleView}  lactive={props.view.lactive} />
+                <Button type="gridView" toggleView={props.toggleView}  gactive={props.view.gactive} />
             </div>
         </div>
     );

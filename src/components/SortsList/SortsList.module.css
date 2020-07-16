@@ -1,0 +1,8 @@
+.SortsList {
+    display: flex;
+    flex-flow: column;
+    width: 100vw;
+    height: auto;
+    align-items: center;
+    justify-content: center;
+}
