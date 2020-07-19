@@ -16,3 +16,7 @@ a, button, h1, h2, h3, label, input {
 p {
     font-family: 'Montserrat';
 }
+
+li, ul {
+    list-style: none;
+}

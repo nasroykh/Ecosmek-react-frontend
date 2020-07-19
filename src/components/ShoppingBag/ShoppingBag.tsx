@@ -6,9 +6,9 @@ import Button from '../../elements/Button/Button';
 
 const shoppingBag = (props: any) => {
     return (
-        <div className={classes.ShoppingBag}>
+        <div className={`${classes.ShoppingBag} ${props.sbShow ? classes.Open : classes.Close}`}>
             <div className={classes.SBHeader}>
-                <ShopBag/>
+                <ShopBag sbToggle={props.sbToggle}/>
             </div>
             <div className={classes.BagProds}>
                 <BagProds/>

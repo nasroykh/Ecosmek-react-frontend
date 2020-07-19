@@ -13,9 +13,9 @@ const prod = (props: any) => {
                 <div className={classes.ProdGrid}>
                     <ProdImage view={props.view}/>
                     <div className={classes.ProdInfosGrid}>
-                        <p className={classes.PName}>Eau de Toilette - Blue</p>
-                        <p className={classes.PBrand}>Ulric De Varens</p>
-                        <p className={classes.PPrice}>900DA</p>
+                        <p className={classes.PName}>{props.pname}</p>
+                        <p className={classes.PBrand}>{props.pbrand}</p>
+                        <p className={classes.PPrice}>{props.pprice}</p>
                     </div>
                     <Button type="addBag" />
                 </div>
@@ -27,9 +27,9 @@ const prod = (props: any) => {
                 <div className={classes.ProdList}>
                     <ProdImage view={props.view}/>
                     <div className={classes.ProdInfosList}>
-                        <p className={classes.PName}>Eau de Toilette - Blue</p>
-                        <p className={classes.PBrand}>Ulric De Varens</p>
-                        <p className={classes.PPrice}>900DA</p>
+                        <p className={classes.PName}>{props.pname}</p>
+                        <p className={classes.PBrand}>{props.pbrand}</p>
+                        <p className={classes.PPrice}>{props.pprice}</p>
                     </div>
                     <Button type="addBag" />
                 </div>

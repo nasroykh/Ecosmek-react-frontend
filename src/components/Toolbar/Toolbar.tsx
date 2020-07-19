@@ -9,11 +9,11 @@ import { NavLink } from 'react-router-dom';
 const toolbar = (props: any) => {
     return(
         <div className={props.sisu1 ? classes.SiSuToolbar : classes.Toolbar}>
-            {props.sisu1 ? null : <DrawerToggle />}
+            {props.sisu1 ? null : <DrawerToggle sdToggle={props.sdToggle} />}
             <NavLink to="/">
                 <Logo />
             </NavLink>
-            {props.sisu1 ? null : <ShopBag/>}
+            {props.hideSB ? null : <ShopBag sbToggle={props.sbToggle}/>}
         </div>
     );
 }

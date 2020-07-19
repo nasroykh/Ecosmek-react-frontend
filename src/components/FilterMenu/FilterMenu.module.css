@@ -1,0 +1,53 @@
+.FilterMenu {
+    position: relative;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: auto;
+    background-color: #DEB4E4;
+}
+
+.BrandFilter {
+    width: 90vw;
+    display: flex;
+    flex-flow: column;
+}
+
+.BrandFilter h4, .TypeFilter h4, .PriceFilter h4 {
+    font-weight: 500;
+    margin-top: 5px;
+    font-size: 1.1rem;
+}
+
+.TypeFilter h4, .PriceFilter h4 {
+    align-self: flex-start;
+}
+
+.TypeFilter {
+    display: flex;
+    flex-flow: column;
+    width: 90vw;
+    align-items: center;
+    justify-content: center;
+}
+
+.PriceFilter {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+    width: 90vw;
+}
+
+.PriceFilter div {
+    width: 90vw;
+    height: 3px;
+    background-color: aliceblue;
+    margin-bottom: 20px;
+}
+
+.Hide {
+    display: none;
+}

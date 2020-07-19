@@ -1,0 +1,14 @@
+.SortMenu {
+    position: relative;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: auto;
+    background-color: #DEB4E4;
+}
+
+.Hide {
+    display: none;
+}

@@ -13,7 +13,7 @@
     background-color: #DEB4E4;
     border: 1px solid #C387EB;
     box-sizing: border-box;
-    transition: transform 1s ease-out;
+    transition: all 500ms ease-out;
     overflow: auto;
 }
 
@@ -55,9 +55,11 @@
 }
 
 .Open {
-    transform: translateX(0);
+    transform: translate(0, 0);
+    opacity: 1;
 }
 
 .Close {
-    transform: translateX(-100vw);
+    transform: translate(+100vw, 0);
+    opacity: 0;
 }

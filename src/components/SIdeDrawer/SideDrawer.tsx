@@ -6,13 +6,14 @@ import Toolbar from '../Toolbar/Toolbar';
 import DrawerToggle from '../../elements/DrawerToggle/DrawerToggle';
 import Button from '../../elements/Button/Button';
 import LangButton from '../../elements/LangButton/LangButton';
+import { NavLink } from 'react-router-dom';
 
 
 const sideDrawer = (props: any) => {
     return(
-        <div className={classes.SideDrawer}>
+        <div className={`${classes.SideDrawer} ${props.sdShow ? classes.Open : classes.Close}`}>
             <div className={classes.SDToolbar}>
-                <DrawerToggle sd/>
+                <DrawerToggle sd sdToggle={props.sdToggle}/>
                 <Logo/>
             </div>
             <nav className={classes.Nav}>
@@ -20,8 +21,12 @@ const sideDrawer = (props: any) => {
             </nav>
             <div className={classes.SDFooter}>
                 <div>
-                    <Button type="sdsignup"/>
-                    <Button type="sdsignin"/>
+                    <NavLink to="/signup">
+                        <Button type="sdsignup"/>
+                    </NavLink>
+                    <NavLink to="/signin">
+                        <Button type="sdsignin"/>
+                    </NavLink>
                 </div>
                 <LangButton/>
             </div>

@@ -1,16 +1,29 @@
 import React from 'react';
 import classes from './NavItems.module.css';
 import NavItem from './NavItem/NavItem';
+import { NavLink } from 'react-router-dom';
 
 const navItems = () => {
     return (
         <ul className={classes.NavItems}>
-            <NavItem>Accueil</NavItem>
-            <NavItem>Boutique</NavItem>
-            <NavItem>Profile</NavItem>
-            <NavItem>Contact</NavItem>
-            <NavItem>A propos de nous</NavItem>
-            <NavItem>Carrières</NavItem>
+            <NavLink to="/home" exact activeStyle={{backgroundColor: "pink"}}>
+                <NavItem>Accueil</NavItem>
+            </NavLink>
+            <NavLink to="/shop" exact activeStyle={{backgroundColor: "pink"}}>
+                <NavItem>Boutique</NavItem>
+            </NavLink>
+            <NavLink to="#">
+                <NavItem>Contact</NavItem>
+            </NavLink>
+            <NavLink to="#">
+                <NavItem>A propos de nous</NavItem>
+            </NavLink>
+            <NavLink to="#">
+                <NavItem>Profile</NavItem>
+            </NavLink>
+            <NavLink to="#">
+                <NavItem>Carrières</NavItem>
+            </NavLink>
         </ul>
     )
 }

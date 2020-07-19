@@ -22,7 +22,10 @@ class App extends Component {
 		},
 		signedUp : false,
 		signedIn : false,
-		pageLoaded: true
+		pageLoaded: true,
+		sdShow: false,
+		sbShow: false,
+		bdShow:false
 	}
 
 	handleInput = (event: ChangeEvent<HTMLInputElement>) => {
@@ -94,7 +97,23 @@ class App extends Component {
 
     toggleInfos = () => {
         this.setState({showInfos : !this.state.showInfos})
-    }
+	}
+	
+	toggleSD = () => {
+		let sdState = this.state.sdShow;
+		let bdState = this.state.bdShow;
+		this.setState({sdShow: !sdState, bdShow: !bdState});
+	}
+
+	toggleSB = () => {
+		let sbState = this.state.sbShow;
+		let bdState = this.state.bdShow;
+		this.setState({sbShow: !sbState, bdShow: !bdState});
+	}
+
+	hideBD = () => {
+		this.setState({bdShow: false, sdShow: false, sbShow: false});
+	}
 
 	render() {
 		return (
@@ -102,38 +121,68 @@ class App extends Component {
 				<BrowserRouter>
 					<Switch>
 						<Route path="/home" exact>
-							<Layout /* sisush */>
+							<Layout 
+							/* sisush */ 
+							sdToggle={this.toggleSD} 
+							sdShow={this.state.sdShow}
+							sbShow={this.state.sbShow}
+							sbToggle={this.toggleSB}
+							hideBD={this.hideBD}
+							bdShow={this.state.bdShow}>
 								{this.state.pageLoaded ? <HomePage/> : <Spinner/>}
 							</Layout>
 						</Route>
 						<Route path="/shop" exact>
-							<Layout /* sisush */>
+							<Layout 
+							/* sisush */ 
+							sdToggle={this.toggleSD} 
+							sdShow={this.state.sdShow}
+							sbShow={this.state.sbShow}
+							sbToggle={this.toggleSB}
+							hideBD={this.hideBD}
+							bdShow={this.state.bdShow}>
 								{this.state.pageLoaded ? <ShopPage/> : <Spinner/>}
 							</Layout>
 						</Route>
 						<Route path="/signin" exact>
-							<Layout sisush sisu signUpIn={this.signInBtnHandler}>
+							<Layout 
+							hideSB hideCI showBS backNextBtn 
+							signUpIn={this.signInBtnHandler}
+							sdToggle={this.toggleSD} 
+							sdShow={this.state.sdShow}
+							hideBD={this.hideBD}
+							bdShow={this.state.bdShow}>
 								<SignInPage
 									handleInput={this.handleInput} 
 									email={this.state.account.email}
 									password={this.state.account.password}
+									sdToggle={this.toggleSD} 
+									sdShow={this.state.sdShow}
+									hideBD={this.hideBD}
+									bdShow={this.state.bdShow}
 								/>
 								{this.state.signedIn ? <Redirect to="/shop" /> : null}
 							</Layout>
 						</Route>
 						<Route path="/signup" exact>
-							<Layout sisush signUpIn={this.signUpBtnHandler}>
+							<Layout 
+							hideSB hideCI showBS backNextBtn 
+							signUpIn={this.signUpBtnHandler}
+							sdToggle={this.toggleSD} 
+							sdShow={this.state.sdShow}
+							hideBD={this.hideBD}
+							bdShow={this.state.bdShow}>
 								<SignUpPage 
-								handleInput={this.handleInput} 
-								fullName={this.state.account.fullName}
-								email={this.state.account.email}
-								password={this.state.account.password}
+									handleInput={this.handleInput} 
+									fullName={this.state.account.fullName}
+									email={this.state.account.email}
+									password={this.state.account.password}
 								/>
 								{this.state.signedUp ? <Redirect to="/shop" /> : null }
 							</Layout>					
 						</Route>
 						<Route path="/">
-							{this.state.signedUp ? <Redirect to="/shop" /> : <LandingPage showInfos={this.state.showInfos} toggleInfos={this.toggleInfos} />}
+							<LandingPage showInfos={this.state.showInfos} toggleInfos={this.toggleInfos} />
 						</Route>
 					</Switch>
 				</BrowserRouter>

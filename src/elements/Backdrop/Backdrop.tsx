@@ -5,7 +5,7 @@ import Aux from '../../hoc/Aux';
 const backdrop = (props: any) => {
     return (
         <Aux>
-            {props.show ? <div className={classes.Backdrop}></div> : null}
+            {props.bdShow ? <div className={classes.Backdrop} onClick={props.hideBD}></div> : null}
         </Aux>
     )
 }

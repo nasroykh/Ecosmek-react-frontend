@@ -143,28 +143,28 @@ const button = (props: any) => {
 
         case "backPage":
             btnType = 
-            <div className={classes.BackP}>
+            <div className={classes.BackP} onClick={props.paginate}>
                 <input type="image" src={pagebtn} alt="Previous Page"/>
             </div>
         break;
 
         case "doubleBack":
             btnType = 
-            <div className={classes.DBackP}>
+            <div className={classes.DBackP} onClick={props.paginate}>
                 <input type="image" src={doublenext} alt="First Page"/>
             </div>
         break;
 
         case "nextPage":
             btnType = 
-            <div className={classes.NextP}>
+            <div className={classes.NextP} onClick={props.paginate}>
                 <input type="image" src={pagebtn} alt="Next Page"/>
             </div>
         break;
 
         case "doubleNext":
             btnType = 
-            <div className={classes.DNextP}>
+            <div className={classes.DNextP} onClick={props.paginate}>
                 <input type="image" src={doublenext} alt="Last Page"/>
             </div>
         break;

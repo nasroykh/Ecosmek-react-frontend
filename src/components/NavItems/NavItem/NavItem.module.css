@@ -17,3 +17,7 @@
     height: 1px;
     background-color: white;
 }
+
+.ActiveNav {
+    color: violet;
+}

@@ -1,7 +1,6 @@
 .ShopPage {
     display: flex;
     flex-flow: column;
-    margin-bottom: auto;
     width: 100vw;
     height: auto;
 }

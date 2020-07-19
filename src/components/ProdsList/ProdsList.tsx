@@ -6,39 +6,28 @@ import Aux from '../../hoc/Aux';
 const prodsList = (props: any) => {
     let prods;
 
+    const products = props.products.map((product: { name: any; brand: any; price: any; }, index: any) => {
+        return(
+        <li key={index}>
+            <Prod view={props.view} pname={product.name} pbrand={product.brand} pprice={product.price} />
+        </li>
+        );
+    })
+
     switch (props.view) {
         case "grid":
             prods = (
-                <div className={classes.ProdsList}>
-                    <div className={classes.ProdsLine}>
-                        <Prod view={props.view}/>
-                        <Prod view={props.view}/>
-                        <Prod view={props.view}/>
-                    </div>
-                    <div className={classes.ProdsLine}>
-                        <Prod view={props.view}/>
-                        <Prod view={props.view}/>
-                        <Prod view={props.view}/>
-                    </div>
-                    <div className={classes.ProdsLine}>
-                        <Prod view={props.view}/>
-                        <Prod view={props.view}/>
-                        <Prod view={props.view}/>
-                    </div>
-                </div>
+                <ul className={classes.ProdsListGrid}>
+                    {products}
+                </ul>
             );
             break;
 
         case "list":
             prods= (
-                <div className={classes.ProdsList}>
-                    <Prod view={props.view}/>
-                    <Prod view={props.view}/>
-                    <Prod view={props.view}/>
-                    <Prod view={props.view}/>
-                    <Prod view={props.view}/>
-                    <Prod view={props.view}/>
-                </div>
+                <ul className={classes.ProdsListList}>
+                    {products}
+                </ul>
             );
             break;
     
