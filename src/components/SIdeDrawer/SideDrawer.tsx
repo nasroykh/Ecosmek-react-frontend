@@ -17,15 +17,15 @@ const sideDrawer = (props: any) => {
                 <Logo/>
             </div>
             <nav className={classes.Nav}>
-                <NavItems/>
+                <NavItems sdToggle={props.sdToggle}/>
             </nav>
             <div className={classes.SDFooter}>
                 <div>
-                    <NavLink to="/signup">
-                        <Button type="sdsignup"/>
+                    <NavLink to="/signup" >
+                        <Button type="sdsignup" sdToggle={props.sdToggle}/>
                     </NavLink>
-                    <NavLink to="/signin">
-                        <Button type="sdsignin"/>
+                    <NavLink to="/signin" >
+                        <Button type="sdsignin" sdToggle={props.sdToggle}/>
                     </NavLink>
                 </div>
                 <LangButton/>

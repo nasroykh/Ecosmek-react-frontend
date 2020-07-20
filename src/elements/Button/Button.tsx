@@ -50,7 +50,7 @@ const button = (props: any) => {
         case "sdsignup":
             btnType = 
                 <Aux>
-                    <div className={classes.SDSignUpBtn}>
+                    <div className={classes.SDSignUpBtn} onClick={props.sdToggle}>
                         <button>
                             S'inscrire
                         </button>
@@ -62,7 +62,7 @@ const button = (props: any) => {
         case "sdsignin":
             btnType = 
                 <Aux>
-                    <div className={classes.SDSignInBtn}>
+                    <div className={classes.SDSignInBtn} onClick={props.sdToggle}>
                         <button>
                             Se connecter
                         </button>

@@ -43,7 +43,7 @@
     margin-bottom: 5vh;
 }
 
-.SDFooter :last-child {
+.SDFooter :first-child {
 }
 
 .Open {

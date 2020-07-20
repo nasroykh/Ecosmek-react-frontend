@@ -3,13 +3,13 @@ import classes from './NavItems.module.css';
 import NavItem from './NavItem/NavItem';
 import { NavLink } from 'react-router-dom';
 
-const navItems = () => {
+const navItems = (props: any) => {
     return (
-        <ul className={classes.NavItems}>
-            <NavLink to="/home" exact activeStyle={{backgroundColor: "pink"}}>
+        <ul className={classes.NavItems} onClick={props.sdToggle}>
+            <NavLink to="/home" exact activeStyle={{border: "1px solid white", borderBottom: "none", borderTop: "none", padding: "0 5px"}}>
                 <NavItem>Accueil</NavItem>
             </NavLink>
-            <NavLink to="/shop" exact activeStyle={{backgroundColor: "pink"}}>
+            <NavLink to="/shop" exact activeStyle={{border: "1px solid white", borderBottom: "none", borderTop: "none", padding: "0 5px"}}>
                 <NavItem>Boutique</NavItem>
             </NavLink>
             <NavLink to="#">

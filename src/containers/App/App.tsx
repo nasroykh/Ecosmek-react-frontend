@@ -10,45 +10,95 @@ import ShopPage from '../ShopPage/ShopPage';
 import axios from '../../axios-ck';
 import Spinner from '../../elements/Spinner/Spinner';
 import HomePage from '../../components/HomePage/HomePage';
+import {getFromStorage, setInStorage} from '../../utils/storage';
 
 class App extends Component {
 
 	state = {
 		showInfos : false,
-		account : {
-			fullName : '',
-			email: '',
-            password: ''
+		accountSignIn : {
+			signInEmail: '',
+            signInPassword: ''
 		},
-		signedUp : false,
-		signedIn : false,
-		pageLoaded: true,
+		accountSignUp : {
+			signUpFullName : '',
+			signUpEmail: '',
+            signUpPassword: ''
+		},
+		token: '',
+		isLoading: true,
+		signedIn: false,
+		signedUp: false,
+		isAuth: false,
 		sdShow: false,
 		sbShow: false,
 		bdShow:false
 	}
 
-	handleInput = (event: ChangeEvent<HTMLInputElement>) => {
+	componentDidMount() {
+/* 		const token = getFromStorage('the_main_app');
+		axios.get("/get_accounts")
+		.then(res => {
+			console.log(res);
+		})
+		.catch(err => {
+			console.log(err);
+		})
+		if (token) {
+			axios.get("/get_accounts")
+			.then(res => {
+				console.log(res);
+			})
+			.catch(err => {
+				console.log(err);
+			})
+		} else {
+			this.setState({isLoading: false});
+		} */
+	}
+
+	handleInputSU = (event: ChangeEvent<HTMLInputElement>) => {
         let value = event.target.value;
-        let account = this.state.account;
-        let updatedAccount;
+        let account = this.state.accountSignUp;
+		let updatedAccount;
         switch (event.target.placeholder) {
             case 'Nom':
-                account.fullName = value;
+                account.signUpFullName = value;
                 updatedAccount = account;
-                this.setState({account : updatedAccount});
+                this.setState({accountSignIn : updatedAccount});
                 break;
         
             case 'Email':
-                account.email = value;
+                account.signUpEmail = value;
                 updatedAccount = account;
-                this.setState({account : updatedAccount});
+                this.setState({accountSignIn : updatedAccount});
                 break;
 
             case 'Mot de Passe':
-                account.password = value;
+                account.signUpPassword = value;
                 updatedAccount = account;
-                this.setState({account : updatedAccount});
+                this.setState({accountSignIn : updatedAccount});
+                break;
+            default:
+                break;
+        }
+	}
+	
+	handleInputSI = (event: ChangeEvent<HTMLInputElement>) => {
+        let value = event.target.value;
+        let account = this.state.accountSignIn;
+		let updatedAccount;
+        switch (event.target.placeholder) {        
+            case 'Email':
+                account.signInEmail = value;
+                updatedAccount = account;
+                this.setState({accountSignIn : updatedAccount});
+                break;
+
+            case 'Mot de Passe':
+                account.signInPassword = value;
+                updatedAccount = account;
+                this.setState({accountSignIn : updatedAccount});
                 break;
             default:
                 break;
@@ -56,43 +106,54 @@ class App extends Component {
     }
 	
     signUpBtnHandler = () => {
-		this.setState({pageLoaded: false});
-		let accountInfos = {
-			fullName : this.state.account.fullName,
-			email : this.state.account.email,
-			password : this.state.account.password
+		const {
+			signUpFullName,
+			signUpEmail,
+			signUpPassword
+		} = this.state.accountSignUp;
+
+		const accountInfos = {
+			fullName: signUpFullName,
+			email: signUpEmail,
+			password: signUpPassword
 		}
-		axios.post('create_account', accountInfos)
-		.then(res => {
-			if (res.data.signedUp) {
-				this.setState({signedUp: true})
-			}
-			else if (!res.data.signedUp) {
-				this.setState({signedUp: false})
-			}
-			this.setState({pageLoaded: true});
-		})
-		.catch(error => console.log(error));
-		console.log(this.state.signedUp);
+
+		this.setState({isLoading: true});
+
+		if (!accountInfos.fullName || !accountInfos.email || !accountInfos.password){
+			console.log("empty infos");
+		}	
+		else {
+			axios.post("/create_account", accountInfos)
+			.then(res => {
+				let signedUp = res.data.signedUp;
+				this.setState({isLoading: false, signedUp: signedUp});
+			})
+			.catch(err => {
+				console.log(err);
+			})
+		}
 	}
 	
 	signInBtnHandler = () => {
-		this.setState({pageLoaded: false});
-		let accountInfos = {
-			identification : this.state.account.email,
-			password : this.state.account.password
+		const {
+			signInEmail,
+			signInPassword,
+		} = this.state.accountSignIn;
+
+		const accountInfos = {
+			identification: signInEmail,
+			password: signInPassword
 		}
-		axios.post('login', accountInfos)
+		this.setState({isLoading: true});
+
+		axios.post("/login", accountInfos)
 		.then(res => {
-			if (res.data.signedIn) {
-				this.setState({signedIn: true})
-			}
-			else if (!res.data.signedUp) {
-				this.setState({signedIn: false})
-			}		
-			this.setState({pageLoaded: true});
+			this.setState({isLoading: false});
 		})
-		.catch(error => console.log(error));
+		.catch(err => {
+			console.log(err);
+		})
     }
 
     toggleInfos = () => {
@@ -116,10 +177,42 @@ class App extends Component {
 	}
 
 	render() {
+		const {
+			isLoading,
+			token,
+			signedUp,
+			signedIn
+		} = this.state;
+
+		const {
+			signInEmail,
+			signInPassword,
+		} = this.state.accountSignIn;
+
+		const {
+			signUpFullName,
+			signUpEmail,
+			signUpPassword
+		} = this.state.accountSignUp;
+
 		return (
 			<div className={classes.App}>
 				<BrowserRouter>
 					<Switch>
+
+						<Route path="/home/:user" exact>
+							<Layout 
+							/* sisush */ 
+							sdToggle={this.toggleSD} 
+							sdShow={this.state.sdShow}
+							sbShow={this.state.sbShow}
+							sbToggle={this.toggleSB}
+							hideBD={this.hideBD}
+							bdShow={this.state.bdShow}>
+								{this.state.isLoading ? <Spinner/> : <HomePage/>}
+							</Layout>
+						</Route>
+
 						<Route path="/home" exact>
 							<Layout 
 							/* sisush */ 
@@ -129,9 +222,23 @@ class App extends Component {
 							sbToggle={this.toggleSB}
 							hideBD={this.hideBD}
 							bdShow={this.state.bdShow}>
-								{this.state.pageLoaded ? <HomePage/> : <Spinner/>}
+								<HomePage/>
 							</Layout>
 						</Route>
+
+						<Route path="/shop/:user" exact>
+							<Layout 
+							/* sisush */ 
+							sdToggle={this.toggleSD} 
+							sdShow={this.state.sdShow}
+							sbShow={this.state.sbShow}
+							sbToggle={this.toggleSB}
+							hideBD={this.hideBD}
+							bdShow={this.state.bdShow}>
+								{this.state.isLoading ? <Spinner/> : <ShopPage/> }
+							</Layout>
+						</Route>
+
 						<Route path="/shop" exact>
 							<Layout 
 							/* sisush */ 
@@ -141,49 +248,60 @@ class App extends Component {
 							sbToggle={this.toggleSB}
 							hideBD={this.hideBD}
 							bdShow={this.state.bdShow}>
-								{this.state.pageLoaded ? <ShopPage/> : <Spinner/>}
+								<ShopPage/>
 							</Layout>
 						</Route>
+
 						<Route path="/signin" exact>
 							<Layout 
-							hideSB hideCI showBS backNextBtn 
+							hideSB hideCI showBS 
+							page='signin' 
 							signUpIn={this.signInBtnHandler}
 							sdToggle={this.toggleSD} 
 							sdShow={this.state.sdShow}
 							hideBD={this.hideBD}
-							bdShow={this.state.bdShow}>
-								<SignInPage
-									handleInput={this.handleInput} 
-									email={this.state.account.email}
-									password={this.state.account.password}
-									sdToggle={this.toggleSD} 
-									sdShow={this.state.sdShow}
-									hideBD={this.hideBD}
-									bdShow={this.state.bdShow}
-								/>
-								{this.state.signedIn ? <Redirect to="/shop" /> : null}
+							bdShow={this.state.bdShow}
+							token={token}>
+								<SignInPage handleInput={this.handleInputSI} email={signInEmail} password={signInPassword} sdToggle={this.toggleSD} sdShow={this.state.sdShow} hideBD={this.hideBD} bdShow={this.state.bdShow} />
 							</Layout>
 						</Route>
+
+						<Route path="/signin/login" exact>
+							<Layout 
+							hideSB hideCI showBS 
+							page='signin' 
+							signUpIn={this.signInBtnHandler}
+							sdToggle={this.toggleSD} 
+							sdShow={this.state.sdShow}
+							hideBD={this.hideBD}
+							bdShow={this.state.bdShow}
+							token={token}>
+								<SignInPage handleInput={this.handleInputSI} email={signInEmail} password={signInPassword} sdToggle={this.toggleSD} sdShow={this.state.sdShow} hideBD={this.hideBD} bdShow={this.state.bdShow} />
+							</Layout>
+						</Route>
+
 						<Route path="/signup" exact>
 							<Layout 
-							hideSB hideCI showBS backNextBtn 
+							hideSB hideCI showBS 							
+							page='signup' 
 							signUpIn={this.signUpBtnHandler}
 							sdToggle={this.toggleSD} 
 							sdShow={this.state.sdShow}
 							hideBD={this.hideBD}
 							bdShow={this.state.bdShow}>
 								<SignUpPage 
-									handleInput={this.handleInput} 
-									fullName={this.state.account.fullName}
-									email={this.state.account.email}
-									password={this.state.account.password}
+									handleInput={this.handleInputSU} 
+									fullname={signUpFullName}
+									email={signUpEmail}
+									password={signUpPassword}
 								/>
-								{this.state.signedUp ? <Redirect to="/shop" /> : null }
 							</Layout>					
 						</Route>
+
 						<Route path="/">
 							<LandingPage showInfos={this.state.showInfos} toggleInfos={this.toggleInfos} />
 						</Route>
+
 					</Switch>
 				</BrowserRouter>
 			</div>

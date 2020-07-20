@@ -5,7 +5,6 @@ import { NavLink } from 'react-router-dom';
 import SearchInput from '../../elements/SearchInput/SearchInput';
 import ShopCat from '../../components/ShopCat/ShopCat';
 import ShopProds from '../../components/ShopProds/ShopProds';
-import filterMenu from '../../components/FilterMenu/FilterMenu';
 
 
 class ShopPage extends Component {
