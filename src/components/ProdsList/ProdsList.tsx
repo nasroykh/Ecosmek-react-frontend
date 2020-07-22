@@ -6,10 +6,10 @@ import Aux from '../../hoc/Aux';
 const prodsList = (props: any) => {
     let prods;
 
-    const products = props.products.map((product: { name: any; brand: any; price: any; }, index: any) => {
+    const products = props.products.map((product: { name: any; brand: any; price: any; img: any }, index: any) => {
         return(
         <li key={index}>
-            <Prod view={props.view} pname={product.name} pbrand={product.brand} pprice={product.price} />
+            <Prod view={props.view} pname={product.name} pbrand={product.brand} pprice={product.price} pimage={product.img} />
         </li>
         );
     })

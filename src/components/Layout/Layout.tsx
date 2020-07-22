@@ -19,7 +19,7 @@ const layout = (props: any) => {
             btn = (
                 <Aux>
                     <NavLink to="/"><Button type="back"/></NavLink>
-                    <NavLink to={`#`}><Button type="next" signUpIn={props.signUpIn}/></NavLink>
+                    <Button type="next" signUpIn={props.signUpIn}/>
                     {/* <NavLink to={`/home/${props.token}`}><Button type="next" signUpIn={props.signUpIn}/></NavLink> */}
                 </Aux>
             );
@@ -29,7 +29,7 @@ const layout = (props: any) => {
             btn = (
                 <Aux>
                     <NavLink to="/"><Button type="back"/></NavLink>
-                    <NavLink to='/signin/login'><Button type="next" signUpIn={props.signUpIn}/></NavLink>
+                    <Button type="next" signUpIn={props.signUpIn}/>
                 </Aux>
                 );
             break;    
@@ -41,9 +41,9 @@ const layout = (props: any) => {
     return(
         <div className={classes.Content}>
             <Backdrop bdShow={props.bdShow} hideBD={props.hideBD}/>
-            <SideDrawer sdToggle={props.sdToggle} sdShow={props.sdShow}/>
+            <SideDrawer sdToggle={props.sdToggle} sdShow={props.sdShow} signedIn={props.signedIn} logout={props.logout}/>
             <ShoppingBag sbShow={props.sbShow} sbToggle={props.sbToggle}/>
-            <Toolbar hideSB={props.hideSB} sdToggle={props.sdToggle} sbToggle={props.sbToggle}/>
+            <Toolbar hideSB={props.hideSB} sdToggle={props.sdToggle} sbToggle={props.sbToggle} signedIn={props.signedIn}/>
             <main className={classes.Main}>
                 {props.children}
             </main>

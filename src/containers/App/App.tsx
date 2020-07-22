@@ -3,7 +3,7 @@ import classes from './App.module.css';
 import Layout from '../../components/Layout/Layout';
 import LandingPage from '../../components/LandingPage/LandingPage';
 import SignInPage from '../../components/SignInPage/SignInPage';
-import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
+import {  Switch, Route, Redirect, RouteComponentProps, withRouter } from "react-router-dom";
 import LangChange from '../../components/LangChange/LangChange';
 import SignUpPage from '../../components/SignUpPage/SignUpPage';
 import ShopPage from '../ShopPage/ShopPage';
@@ -12,12 +12,14 @@ import Spinner from '../../elements/Spinner/Spinner';
 import HomePage from '../../components/HomePage/HomePage';
 import {getFromStorage, setInStorage} from '../../utils/storage';
 
-class App extends Component {
+type AppProps = RouteComponentProps;
+
+class App extends Component<AppProps> {
 
 	state = {
 		showInfos : false,
 		accountSignIn : {
-			signInEmail: '',
+			signInIdentification: '',
             signInPassword: ''
 		},
 		accountSignUp : {
@@ -26,7 +28,7 @@ class App extends Component {
             signUpPassword: ''
 		},
 		token: '',
-		isLoading: true,
+		isLoading: false,
 		signedIn: false,
 		signedUp: false,
 		isAuth: false,
@@ -90,7 +92,7 @@ class App extends Component {
 		let updatedAccount;
         switch (event.target.placeholder) {        
             case 'Email':
-                account.signInEmail = value;
+                account.signInIdentification = value;
                 updatedAccount = account;
                 this.setState({accountSignIn : updatedAccount});
                 break;
@@ -127,7 +129,10 @@ class App extends Component {
 			axios.post("/create_account", accountInfos)
 			.then(res => {
 				let signedUp = res.data.signedUp;
-				this.setState({isLoading: false, signedUp: signedUp});
+				this.setState({isLoading: false, signedUp: signedUp, accountSignUp:{signUpEmail: "", signUpFullName: "", signUpPassword: ""}});
+				if (this.state.signedUp) {
+					this.props.history.replace("signin")
+				}
 			})
 			.catch(err => {
 				console.log(err);
@@ -136,25 +141,37 @@ class App extends Component {
 	}
 	
 	signInBtnHandler = () => {
-		const {
-			signInEmail,
+		const { 
+			signInIdentification,
 			signInPassword,
 		} = this.state.accountSignIn;
 
 		const accountInfos = {
-			identification: signInEmail,
+			identification: signInIdentification,
 			password: signInPassword
 		}
 		this.setState({isLoading: true});
 
 		axios.post("/login", accountInfos)
 		.then(res => {
-			this.setState({isLoading: false});
+			this.setState({isLoading: false, token: res.data.token, signedIn: res.data.signedIn , accountSignIn: {signInIdentification: "", signInPassword: ""}});
+			if(this.state.signedIn) {
+				setInStorage("token", res.data.token);
+				setInStorage("name", res.data.fullName);
+				this.props.history.replace(`/home`);
+			}
 		})
 		.catch(err => {
 			console.log(err);
 		})
-    }
+	}
+	
+	logoutBtnHandler = () => {
+		let sdState = this.state.sdShow;
+		let bdState = this.state.bdShow;
+		this.setState({signedIn: false, sdShow: !sdState, bdShow: !bdState, accountSignIn : {signInIdentification: "", signInPassword: ""}, accountSignUp: {signUpEmail: "", signUpFullName: "", signUpPassword: ""}});
+		this.props.history.replace("/");
+	}
 
     toggleInfos = () => {
         this.setState({showInfos : !this.state.showInfos})
@@ -185,7 +202,7 @@ class App extends Component {
 		} = this.state;
 
 		const {
-			signInEmail,
+			signInIdentification,
 			signInPassword,
 		} = this.state.accountSignIn;
 
@@ -197,21 +214,7 @@ class App extends Component {
 
 		return (
 			<div className={classes.App}>
-				<BrowserRouter>
 					<Switch>
-
-						<Route path="/home/:user" exact>
-							<Layout 
-							/* sisush */ 
-							sdToggle={this.toggleSD} 
-							sdShow={this.state.sdShow}
-							sbShow={this.state.sbShow}
-							sbToggle={this.toggleSB}
-							hideBD={this.hideBD}
-							bdShow={this.state.bdShow}>
-								{this.state.isLoading ? <Spinner/> : <HomePage/>}
-							</Layout>
-						</Route>
 
 						<Route path="/home" exact>
 							<Layout 
@@ -221,21 +224,14 @@ class App extends Component {
 							sbShow={this.state.sbShow}
 							sbToggle={this.toggleSB}
 							hideBD={this.hideBD}
-							bdShow={this.state.bdShow}>
-								<HomePage/>
-							</Layout>
-						</Route>
-
-						<Route path="/shop/:user" exact>
-							<Layout 
-							/* sisush */ 
-							sdToggle={this.toggleSD} 
-							sdShow={this.state.sdShow}
-							sbShow={this.state.sbShow}
-							sbToggle={this.toggleSB}
-							hideBD={this.hideBD}
-							bdShow={this.state.bdShow}>
-								{this.state.isLoading ? <Spinner/> : <ShopPage/> }
+							bdShow={this.state.bdShow}
+							signedIn={signedIn}
+							token={token}
+							logout={this.logoutBtnHandler}>
+								{isLoading ? <Spinner/> : 
+								<HomePage 							
+								signedIn={signedIn}
+								token={token}/>}
 							</Layout>
 						</Route>
 
@@ -247,8 +243,11 @@ class App extends Component {
 							sbShow={this.state.sbShow}
 							sbToggle={this.toggleSB}
 							hideBD={this.hideBD}
-							bdShow={this.state.bdShow}>
-								<ShopPage/>
+							bdShow={this.state.bdShow}
+							signedIn={signedIn}
+							token={token}
+							logout={this.logoutBtnHandler}>
+								<ShopPage />
 							</Layout>
 						</Route>
 
@@ -261,22 +260,9 @@ class App extends Component {
 							sdShow={this.state.sdShow}
 							hideBD={this.hideBD}
 							bdShow={this.state.bdShow}
+							signedIn={signedIn}
 							token={token}>
-								<SignInPage handleInput={this.handleInputSI} email={signInEmail} password={signInPassword} sdToggle={this.toggleSD} sdShow={this.state.sdShow} hideBD={this.hideBD} bdShow={this.state.bdShow} />
-							</Layout>
-						</Route>
-
-						<Route path="/signin/login" exact>
-							<Layout 
-							hideSB hideCI showBS 
-							page='signin' 
-							signUpIn={this.signInBtnHandler}
-							sdToggle={this.toggleSD} 
-							sdShow={this.state.sdShow}
-							hideBD={this.hideBD}
-							bdShow={this.state.bdShow}
-							token={token}>
-								<SignInPage handleInput={this.handleInputSI} email={signInEmail} password={signInPassword} sdToggle={this.toggleSD} sdShow={this.state.sdShow} hideBD={this.hideBD} bdShow={this.state.bdShow} />
+								<SignInPage handleInput={this.handleInputSI} email={signInIdentification} password={signInPassword} sdToggle={this.toggleSD} sdShow={this.state.sdShow} hideBD={this.hideBD} bdShow={this.state.bdShow} />
 							</Layout>
 						</Route>
 
@@ -299,13 +285,12 @@ class App extends Component {
 						</Route>
 
 						<Route path="/">
-							<LandingPage showInfos={this.state.showInfos} toggleInfos={this.toggleInfos} />
+							{signedIn ? <Redirect to='/home'/> : <LandingPage showInfos={this.state.showInfos} toggleInfos={this.toggleInfos} />}
 						</Route>
 
 					</Switch>
-				</BrowserRouter>
 			</div>
 		);
 	}
 }
-export default App;
+export default withRouter(App);

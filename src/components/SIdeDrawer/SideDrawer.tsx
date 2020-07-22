@@ -7,9 +7,35 @@ import DrawerToggle from '../../elements/DrawerToggle/DrawerToggle';
 import Button from '../../elements/Button/Button';
 import LangButton from '../../elements/LangButton/LangButton';
 import { NavLink } from 'react-router-dom';
+import {getFromStorage, setInStorage} from '../../utils/storage';
+
 
 
 const sideDrawer = (props: any) => {
+
+    let sdLoginOut;
+
+    if (props.signedIn) {
+        sdLoginOut = (
+            <div>
+                <p>Connecté en tant que : Abdeka </p>
+                <Button type='sdlogout' logout={props.logout}/>
+            </div>
+        )
+    }
+    else if (!props.signedIn) {
+        sdLoginOut = (
+            <div>
+                <NavLink to="/signup" >
+                    <Button type="sdsignup" sdToggle={props.sdToggle}/>
+                </NavLink>
+                <NavLink to="/signin" >
+                    <Button type="sdsignin" sdToggle={props.sdToggle}/>
+                </NavLink>
+            </div>
+        )
+    }
+
     return(
         <div className={`${classes.SideDrawer} ${props.sdShow ? classes.Open : classes.Close}`}>
             <div className={classes.SDToolbar}>
@@ -20,14 +46,7 @@ const sideDrawer = (props: any) => {
                 <NavItems sdToggle={props.sdToggle}/>
             </nav>
             <div className={classes.SDFooter}>
-                <div>
-                    <NavLink to="/signup" >
-                        <Button type="sdsignup" sdToggle={props.sdToggle}/>
-                    </NavLink>
-                    <NavLink to="/signin" >
-                        <Button type="sdsignin" sdToggle={props.sdToggle}/>
-                    </NavLink>
-                </div>
+                {sdLoginOut}
                 <LangButton/>
             </div>
         </div>

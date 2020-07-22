@@ -11,7 +11,7 @@ const prod = (props: any) => {
         case "grid":
             prod = (
                 <div className={classes.ProdGrid}>
-                    <ProdImage view={props.view}/>
+                    <ProdImage view={props.view} pimage={props.pimage}/>
                     <div className={classes.ProdInfosGrid}>
                         <p className={classes.PName}>{props.pname}</p>
                         <p className={classes.PBrand}>{props.pbrand}</p>
@@ -25,7 +25,7 @@ const prod = (props: any) => {
         case "list":
             prod = (
                 <div className={classes.ProdList}>
-                    <ProdImage view={props.view}/>
+                    <ProdImage view={props.view}  pimage={props.pimage}/>
                     <div className={classes.ProdInfosList}>
                         <p className={classes.PName}>{props.pname}</p>
                         <p className={classes.PBrand}>{props.pbrand}</p>

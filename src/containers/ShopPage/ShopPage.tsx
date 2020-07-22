@@ -1,10 +1,11 @@
-import React, { Component } from 'react';
+import React, { Component, ChangeEvent } from 'react';
 import classes from './ShopPage.module.css';
 import Button from '../../elements/Button/Button';
 import { NavLink } from 'react-router-dom';
 import SearchInput from '../../elements/SearchInput/SearchInput';
 import ShopCat from '../../components/ShopCat/ShopCat';
 import ShopProds from '../../components/ShopProds/ShopProds';
+import axios from '../../axios-ck';
 
 
 class ShopPage extends Component {
@@ -17,71 +18,35 @@ class ShopPage extends Component {
         },
         showFilterMenu: false,
         showSortMenu: false,
-        products: [
-            {
-                name: "Blue",
-                brand: "UDV", 
-                price: 900
-            },
-            {
-                name: "Black",
-                brand: "UDV", 
-                price: 901
-            },
-            {
-                name: "Red",
-                brand: "UDV", 
-                price: 902
-            },
-            {
-                name: "Blue",
-                brand: "UDV", 
-                price: 903
-            },
-            {
-                name: "Black",
-                brand: "UDV", 
-                price: 904
-            },
-            {
-                name: "Red",
-                brand: "UDV", 
-                price: 905
-            },
-            {
-                name: "Blue",
-                brand: "UDV", 
-                price: 906
-            },
-            {
-                name: "Black",
-                brand: "UDV", 
-                price: 907
-            },
-            {
-                name: "Red",
-                brand: "UDV", 
-                price: 908
-            },
-            {
-                name: "Blue",
-                brand: "UDV", 
-                price: 909
-            },
-            {
-                name: "Black",
-                brand: "UDV", 
-                price: 910
-            },
-            {
-                name: "Red",
-                brand: "UDV", 
-                price: 911
-            }
-        ],
+        products: [],
         loading: false,
         currentPage: 1,
         productsPerPage: 5
+    }
+
+    componentDidMount() {
+        axios.get("/products")
+        .then(res => {
+            console.log(res);
+            let products = res.data;
+            this.setState({products: products});
+        })
+        .catch(err => {
+            console.log(err);
+        });
+    }
+
+    handleInputSearch = (event: ChangeEvent<HTMLInputElement>) => {
+        let searchValue = {wordskey: event.target.value};
+        
+        axios.post('/find_products_by_words', searchValue)
+        .then(res => {
+            let searchedProds = res.data;
+            this.setState({products: searchedProds});
+        })
+        .catch(err => {
+            console.log(err);
+        })
     }
 
     toggleViewHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -148,7 +113,7 @@ class ShopPage extends Component {
         return(
             <div className={classes.ShopPage}>
                 <h2>Boutique</h2>
-                <SearchInput/>
+                <SearchInput searchChange={this.handleInputSearch} />
                 <div className={classes.CatBtns}>
                     <Button type="catBtn">Parfums</Button>
                     <Button type="catBtn">Make-Up</Button>

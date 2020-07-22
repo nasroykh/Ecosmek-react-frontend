@@ -13,7 +13,7 @@ const toolbar = (props: any) => {
             <NavLink to="/">
                 <Logo />
             </NavLink>
-            {props.hideSB ? null : <ShopBag sbToggle={props.sbToggle}/>}
+            {props.hideSB ? null : <ShopBag sbToggle={props.sbToggle} signedIn={props.signedIn}/>}
         </div>
     );
 }

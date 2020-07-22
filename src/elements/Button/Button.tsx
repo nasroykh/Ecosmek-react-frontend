@@ -71,6 +71,18 @@ const button = (props: any) => {
                 </Aux>
             break;    
 
+        case "sdlogout":
+            btnType = 
+                <Aux>
+                    <div className={classes.SDSignInBtn} onClick={props.logout}>
+                        <button>
+                            Se déconnecter
+                        </button>
+                        <div className={classes.UnderLine}></div>
+                    </div>
+                </Aux>
+            break;  
+
         case "shopaccess":
             btnType = 
                 <div className={classes.ShopAccessBtn}>

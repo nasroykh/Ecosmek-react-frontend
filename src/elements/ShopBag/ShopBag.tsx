@@ -7,7 +7,7 @@ const shopBag = (props: any) => {
         <div className={classes.ShopBag} onClick={props.sbToggle}>
             <input type="image" src={bag} alt="Bag"/>
             <div className={classes.Count}>
-                5
+                {props.signedIn ? 0 : "?"}
             </div>
         </div>
     )

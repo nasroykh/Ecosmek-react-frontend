@@ -1,16 +1,17 @@
 import React from 'react';
 import classes from './ProdImage.module.css';
-import prodimg from '../../assets/images/Deo-version-black-e1548437191234-2-300x300 1.svg';
 import Aux from '../../hoc/Aux';
 
 const prodImage = (props: any) => {
     let prodImage;
+
+    let img = `data:image/svg;base64,${props.pimage}`;
     
     switch (props.view) {
         case "grid":
             prodImage = (
                 <div className={classes.ProdImageGrid}>
-                    <img src={prodimg} alt="EDT Blue" width="70px"/>
+                    <img src={img} alt="EDT Blue" width="70px"/>
                 </div>
             )
         break;  
@@ -18,7 +19,7 @@ const prodImage = (props: any) => {
         case "list":
             prodImage = (
                 <div className={classes.ProdImageList}>
-                    <img src={prodimg} alt="EDT Blue" width="70px"/>
+                    <img src={img} alt="EDT Blue" width="70px"/>
                 </div>
             )
         break; 
