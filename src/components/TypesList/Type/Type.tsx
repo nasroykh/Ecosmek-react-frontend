@@ -2,10 +2,10 @@ import React from 'react';
 import classes from './Type.module.css';
 import Checkbox from '../../../elements/Checkbox/Checkbox';
 
-const type = () => {
+const type = (props: any) => {
     return (
         <div className={classes.Type}>
-            <label htmlFor="">Parfum</label>
+            <label htmlFor="">{props.type}</label>
             <Checkbox/>
         </div>
     )

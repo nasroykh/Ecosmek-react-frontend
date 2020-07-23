@@ -2,10 +2,10 @@ import React from 'react';
 import classes from './Brand.module.css';
 import brandLogo from '../../../assets/images/Adidas-Logo-880x660 1.svg';
 
-const brand = () => {
+const brand = (props: any) => {
     return (
-        <div className={classes.Brand}>
-            <input type="image" src={brandLogo} alt="Adidas"/>
+        <div className={classes.Brand} >
+            <input id={props.id} type="image" src={props.src} alt={props.alt} onClick={props.brandSel}/>
         </div>
     );
 }

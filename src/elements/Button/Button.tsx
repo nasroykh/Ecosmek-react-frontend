@@ -204,7 +204,7 @@ const button = (props: any) => {
 
         case "catBtn":
             btnType = 
-            <div className={classes.CatBtn}>
+            <div className={props.selected ? classes.CatBtnSel : classes.CatBtn } onClick={props.catSel} >
                 <label>{props.children}</label>
             </div>
         break;

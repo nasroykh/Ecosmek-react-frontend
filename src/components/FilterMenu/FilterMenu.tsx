@@ -8,7 +8,7 @@ const filterMenu = (props: any) => {
         <div className={`${props.hide ? classes.Hide : classes.FilterMenu}`}>
             <div className={classes.BrandFilter}>
                     <h4>Marque</h4>
-                    <BrandsList/>
+                    <BrandsList brandSel={props.brandSel}/>
                 </div>
                 <div className={classes.TypeFilter}>
                     <h4>Type de Produit</h4>

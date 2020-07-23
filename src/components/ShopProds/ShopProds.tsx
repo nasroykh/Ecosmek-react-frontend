@@ -23,7 +23,7 @@ const shopProds = (props: any) => {
                 </div>
             </div>
             <SortMenu hide={!props.showSorts}/>
-            <FilterMenu hide={!props.showFilters}/>
+            <FilterMenu hide={!props.showFilters} brandSel={props.brandSel}/>
             <PageControl 
                 toggleView={props.toggleView} 
                 view={props.view}

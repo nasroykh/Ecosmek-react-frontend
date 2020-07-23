@@ -5,7 +5,7 @@ import Aux from '../../hoc/Aux';
 const prodImage = (props: any) => {
     let prodImage;
 
-    let img = `data:image/svg;base64,${props.pimage}`;
+    let img = `data:image/png;base64,${props.pimage}`;
     
     switch (props.view) {
         case "grid":

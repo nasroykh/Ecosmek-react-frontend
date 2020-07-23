@@ -2,12 +2,12 @@ import React from 'react';
 import classes from './TypesList.module.css';
 import Type from './Type/Type';
 
-const typesList = () => {
+const typesList = (props: any) => {
     return (
         <div className={classes.TypesList}>
-            <Type/>
-            <Type/>
-            <Type/>
+            <Type type="Parfum"/>
+            <Type type="Déo"/>
+            <Type type="Coffret"/>
         </div>
     )
 }

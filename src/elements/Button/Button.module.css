@@ -262,7 +262,7 @@
         width: 15px;
     }
     
-    .CatBtn{
+    .CatBtnSel{
         background-color: #F9D1FF;
         padding: 10px;
         border: 1px solid #C387EB;
@@ -270,7 +270,11 @@
         border-radius: 15px 5px 0 0;    
     }
 
-    .CatBtn label {
+    .CatBtn{
+        padding: 10px;
+    }
+
+    .CatBtn label, .CatBtnSel label {
         font-size: 0.95rem;
         font-weight: 500;
     }
@@ -320,6 +324,11 @@
         align-items: center;
         justify-content: center;
         font-weight: 500;
+    }
+
+    .Selected {
+        background-color: #C387EB;
+        border: 1px solid #DEB4E4;
     }
 }
 
